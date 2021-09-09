@@ -52,3 +52,19 @@
 		        "token": "2|JAsIGqTlqXDiZ8eDmIlHEqHd6TZCUPUpAvogCizR"
 		    }
 		}
+
+- Use *** /api/v1/github/account/{username} *** for requesting an information of github account by username.
+
+	sample response:
+		{
+		    "status": "Success",
+		    "description": "OK",
+		    "data": {
+		        "name": null,
+		        "login": "janzcio",
+		        "company": null,
+		        "number_of_followers": 0,
+		        "number_of_public_repositories": 8,
+		        "average_number_of_followers_per_public_repository": 0
+		    }
+		}

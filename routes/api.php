@@ -24,5 +24,7 @@ Route::group(['namespace' => 'API\V1', 'prefix' => 'v1'], function() {
 
     Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/sign-out', 'AuthController@signout');
+
+        Route::get('github/account/{username}', 'GitHubController@index');        
     });
 });

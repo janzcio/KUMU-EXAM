@@ -48,4 +48,19 @@ class Controller extends BaseController
         
         return response()->json($arr, 201);
     }   
+
+    /**
+     * Generate bad request Response
+     * @param  array $data [description]
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function generateBadRequest()
+    {
+        return response()->json([
+            'status' => 'Error',
+            'description' => 'Bad Request'
+        ], Response::HTTP_BAD_REQUEST);
+    }
+
+
 }
