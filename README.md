@@ -72,4 +72,4 @@
 		            "average_number_of_followers_per_public_repository": 0
 		        }
 		    ]
-		}
+		}``
