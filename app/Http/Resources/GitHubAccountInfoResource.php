@@ -20,7 +20,7 @@ class GitHubAccountInfoResource extends JsonResource
             'company' => $this->company,
             'number_of_followers' => $this->followers,
             'number_of_public_repositories' => $this->public_repos,
-            'average_number_of_followers_per_public_repository' => floatval($this->followers) / floatval($this->public_repos),
+            'average_number_of_followers_per_public_repository' => (!is_null($this->public_repos) && $this->public_repos > 0) ? (floatval($this->followers) / floatval($this->public_repos)) : 0,
             'cache_hit_indicator' => $this->cache_hit_indicator,
         ];
     }
