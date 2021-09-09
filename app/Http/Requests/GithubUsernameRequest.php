@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\FormRequest;
 
-class UserLoginRequest extends FormRequest
+class GithubUsernameRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class UserLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required',
-            'password' => 'required'
+            'usernames' => 'required|array|max:10|min:1'
         ];
     }
 }
