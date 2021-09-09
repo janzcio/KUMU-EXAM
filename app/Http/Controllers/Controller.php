@@ -54,12 +54,24 @@ class Controller extends BaseController
      * @param  array $data [description]
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function generateBadRequest()
+    protected function generateBadRequest($cusomMessage = null)
     {
         return response()->json([
             'status' => 'Error',
-            'description' => 'Bad Request'
+            'description' => !is_null($cusomMessage) ? $cusomMessage : 'Bad Request'
         ], Response::HTTP_BAD_REQUEST);
+    }
+
+    /**
+     * Generate not found response
+     * @return [type] [description]
+     */
+    protected function generateNoFoundResponse($cusomMessage = null)
+    {
+        return response()->json([                
+            'status' => 'Error',
+            'description' => !is_null($cusomMessage) ? $cusomMessage : 'Not Found'
+        ],404);
     }
 
 

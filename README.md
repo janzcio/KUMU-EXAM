@@ -4,6 +4,7 @@
 - Run ***composer install***.
 - Run ***php artisan key:generate***.
 - Run ***php artisan migrate***.
+- Open ***redis for caching***.
 
 ## API GUIDELINES 
 
