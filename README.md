@@ -9,7 +9,7 @@
 ## API GUIDELINES 
 
 ### POST api/v1/register
-register user endpoint and provides a token for new registered user.
+register user endpoint and provides authenticated token for the new registered user.
 - Payload example :
 
 
@@ -38,7 +38,7 @@ register user endpoint and provides a token for new registered user.
 
 
 ### POST api/v1/login
-Authenticate the user using their existing credential.
+Authenticate the user using their existing credential and provides authenticated token.
 - Payload example :
 
 
@@ -66,7 +66,7 @@ Authenticate the user using their existing credential.
 
 
 ### GET api/v1/github/accounts
-Request an information of github account by usernames.
+Request an information from github by usernames.
 - Parameter example :
 
 		usernames[0] :  "test"
