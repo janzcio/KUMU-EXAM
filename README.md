@@ -8,20 +8,95 @@
 
 ## API GUIDELINES 
 
-- Use *** api/v1/register *** for register user endpoint and provides a token for new registered user.
-	Payload example :
-		(string) name : "Test",
-		(string) email : "test@test.com",
-		(string) password : "password",
-		(string) password_confirmation : "password"
+### POST api/v1/register
+register user endpoint and provides authenticated token for the new registered user.
+- Payload example :
 
 
-- Use *** api/v1/login *** for login enpoint or request a token for an existing user.
-	Payload example :
-		(string) email : "test@test.com",
-		(string) password : "password"
+		name : "Test"
+		email : "test@test.com"
+		password : "password"
+		password_confirmation : "password"
 
 
-- Use *** /api/v1/github/accounts *** for requesting an information of github account by username.
-	parameter:
-		(array) usernames
+- Sample Response
+
+        {
+            "status": "Success",
+            "description": "Created",
+            "data": {
+                "user": {
+                    "name": "Test",
+                    "email": "test@test.com",
+                    "updated_at": "2021-09-09T07:31:55.000000Z",
+                    "created_at": "2021-09-09T07:31:55.000000Z",
+                    "id": 5
+                },
+                "token": "29|xGfDw42Dg70YewuRfUDVUWFIQVIV8DsIAGjJvb3Y"
+            }
+        }
+
+
+### POST api/v1/login
+Authenticate the user using their existing credential and provides authenticated token.
+- Payload example :
+
+
+		email : "test@test.com"
+		password : "password"
+
+
+- Sample Response
+
+        {
+		    "status": "Success",
+		    "description": "Created",
+		    "data": {
+		        "user": {
+		            "id": 5,
+		            "name": "Test",
+		            "email": "test@test.com",
+		            "email_verified_at": null,
+		            "created_at": "2021-09-09T07:31:55.000000Z",
+		            "updated_at": "2021-09-09T07:31:55.000000Z"
+		        },
+		        "token": "30|RH4ue1yDzQLFg0TNisUCEJwNHYj0HbpEJpBFZ7D3"
+		    }
+		}
+
+
+### GET api/v1/github/accounts
+Request an information from github by usernames.
+- Parameter example :
+
+		usernames[0] :  "test"
+		usernames[1] :  "test1"
+
+- Sample Response
+
+        {
+		    "status": "Success",
+		    "description": "OK",
+		    "data": [
+		        {
+		            "name": "Test",
+		            "login": "test",
+		            "company": null,
+		            "number_of_followers": 0,
+		            "number_of_public_repositories": 8,
+		            "average_number_of_followers_per_public_repository": 0,
+		            "cache_hit_indicator": "github"
+		        },
+		        {
+		            "name": "Test1",
+		            "login": "test1",
+		            "company": null,
+		            "number_of_followers": 1,
+		            "number_of_public_repositories": 22,
+		            "average_number_of_followers_per_public_repository": 0.045454545454545456,
+		            "cache_hit_indicator": "github"
+		        }
+		    ]
+		}
+
+
